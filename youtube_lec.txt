@@ -1,0 +1,130 @@
+This is lec is from code with harry https://www.youtube.com/watch?v=AB3J8ufDYHQ
+
+
+################ Introduction #####################
+
+Installing git on the linux and windows is the part i have skipped it as i have already installed them on the laptop.
+
+step1: git init
+step2: git clone <url>
+step3: git add .
+step4: git commit -m "message"
+step5: git push
+
+############ Terminlology ############################
+
+1. working directory
+2. Staging area
+3. Local repository
+4. remote repository
+
+we will move files from working area to staging area by typing git add command.
+
+############ Git Init #############################
+
+After typeing git init we have to set the git config by entering these commands like
+1. git config --global user.name "mohithkota"
+2. git config --global user.email "mohithkota@gmail.com"
+
+>>>>>>>>>>> The Big 4 Commands in git >>>>>>>>>>>>>>>>>>>>
+
+1. git status 						---will give all the status about the files in wd.
+2. git add <file.name> or git add . or git add -A  	---this will add all the untracked files to the staging area.
+3. git commit -m "message string" 			---commit command will take files from staging area to local repository.
+4. git log 						---this will last meassage and the commit hash to check what is the last added file to the git.
+5. git log --oneline  					---will give all the commit messages in one line and the latest one wiil have this (HEAD -> main).
+6. git restore --staged <file.name> 			---this will remove the priticular file from the git commit stage.
+
+
+##################### Git ignore #####################
+
+This command will ignore some files which are there in the working directory like some files won't be tracked in the working stage.
+we can add the files and folders in the .gitignore file so that those will be ignored.
+
+
+#################### Tracking the empty fodlers or files ##############
+
+To track the empty files and folder we have to create .gitkeep file so all the entries in that file will be tracked.
+
+######################## Branching ############################
+
+1. We have different braches with same or different work so that people can do their work on their own branch and finally merge all the braches together into the main branch.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>> Branch Creation >>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1. git branch <branch_name> 	---this will create a new branch along side with main branch.
+2. git branch 			---This will list all the branches in the git including main branch.
+3. git switch <branch_name> 	---This will switch to the specific branch.
+4. To merge branches we have to got the main branch and use the git merge <branch_name> so the branch will be merged into to the main branch.
+5. To delete the branch git branch -d <branch_name>
+6. git branch -m <New_branch_name>  --- To change the branch name
+>>>>>>>>>>>>>>>>>>>>>> Typical WorkFlow Branch Merging >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+step 1 : # Work on feature branch
+	  git switch feature
+
+step2 :  # Make commits
+	 git add .
+	 git commit -m "Implement new feature"
+
+step 3: # Switch to main
+	 git switch main
+
+step4:  # Update main
+	 git pull origin main
+
+step5: # Merge feature into main
+	git merge feature
+
+step6: # Push the updated main
+	git push origin main
+
+
+#######################################  Merge Conflits ###############################
+
+When we have two changes on the same file in the two different branches then we will get the merge conflits.
+we have to fix the files in the manually and then we have merge the chages into the main branch that how we have to solve this issue.
+
+>>>>>>>>>>>>>>>>>>>>>>> Usefull commands >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+git status  		---to see the conficted files.
+git diff   		---to see the what is causing the conflict.
+git merge --abort 	---This restores the repository to the state before the merge started.
+
+################################# Git Stashing #########################################
+
+What is a stash?
+A stash is like a temporary shelf where Git stores your uncommitted changes so you can work on something else.
+
+1. git stash        ---chagnes will be stashed in one place.
+2. git stash list   ---this will show all the stashed chages in the list format.
+3. git stash pop    ---this will bring all the temp chages to back to their place.
+4. git stash apply  ---this will apply the chages directly to the branch without poping them.
+
+>>>>>>>>>>>>>>>>>>>>>>> When to use which? >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Use git stash apply if you want to keep a backup of the stashed changes in case you need to apply them again.
+Use git stash pop when you're confident you no longer need the stash after restoring the changes.
+
+
+####################################### Git Tags ############################################
+
+Git tags are used to mark a specific commit with a permanent, human-readable name. They are most commonly used to identify releases, versions, or other important milestones.
+
+1. Annoted Tags  	---Annotated tags store additional information like the author, date, and a message.
+2. Lightweight Tags 	---This will have the light info about the commit.
+
+>>>>>>>>>>>>>>>>>>> Git Tag commands >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1. git tag -a <tag_string> -m "message"     ---This will create the annoted Tag.
+2. git show <tag_string>   		    ---To view the Tag details.
+3. git tag     		    		    ---This will shows all the tags list.
+4. git tag <tag_string>     	            ---This will create the lightweight tag.
+5. git tag -d v1.0			    ---This will delete the tag locally.
+6. git push origin --delete v1.0            ---This will delete the tag remotely.
+
+################################ Git Rebase ##################################################
+
+>>>>>>>>>>>>>>>  we have to look int this one >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THE END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
